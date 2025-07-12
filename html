@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Employee Directory</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header>
+        <h1>Employee Directory</h1>
+        <input type="text" id="search" placeholder="Search by name or email" />
+        <button onclick="openForm()">Add Employee</button>
+    </header>
+
+    <div id="filter-sort">
+        <select id="sortBy" onchange="renderEmployees()">
+            <option value="">Sort by</option>
+            <option value="firstName">First Name</option>
+            <option value="department">Department</option>
+        </select>
+        <select id="itemsPerPage" onchange="changePage(1)">
+            <option value="10">10</option>
+            <option value="25">25</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+        </select>
+    </div>
+
+    <div id="employee-list"></div>
+    <div id="pagination"></div>
+
+    <div id="form-container" class="modal hidden">
+        <form id="employee-form">
+            <h2 id="form-title">Add Employee</h2>
+            <input type="hidden" id="employeeId" />
+            <input type="text" id="firstName" placeholder="First Name" required />
+            <input type="text" id="lastName" placeholder="Last Name" required />
+            <input type="email" id="email" placeholder="Email" required />
+            <input type="text" id="department" placeholder="Department" required />
+            <input type="text" id="role" placeholder="Role" required />
+            <button type="submit">Save</button>
+            <button type="button" onclick="closeForm()">Cancel</button>
+        </form>
+    </div>
+
+    <footer>
+        &copy; 2025 Employee Directory App. All rights reserved.
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
